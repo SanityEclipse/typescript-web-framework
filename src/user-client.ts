@@ -1,21 +1,26 @@
 import axios from 'axios';
 import { User } from './models/User';
 
-const rootUrl = 'http://localhost:3000';
-
-export async function getUserList() {
+export async function getUserList(rootUrl: string) {
   return axios.get(`${rootUrl}/users`);
 }
 
-export async function getUserById(id: string | number): Promise<User> {
+export async function getUserById(
+  rootUrl: string,
+  id: string | number
+): Promise<User> {
   return axios.get(`${rootUrl}/users/${id}`);
 }
 
-export async function saveNewUser(newUserData: any): Promise<void> {
+export async function saveNewUser(
+  rootUrl: string,
+  newUserData: any
+): Promise<void> {
   axios.post(`${rootUrl}/users`, newUserData);
 }
 
 export async function updateExistingUser(
+  rootUrl: string,
   id: string | number,
   data: any
 ): Promise<void> {

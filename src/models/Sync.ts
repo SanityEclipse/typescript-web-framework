@@ -1,19 +1,23 @@
-import * as userService from '../user-service';
+import * as userClient from '../user-client';
 import { User } from './User';
-import UserProps from '../interfaces/UserProps';
 
-export class Sync {
+interface HasId {
+  id?: number;
+}
+
+export class Sync<T extends HasId> {
   constructor(public rootUrl: string) {}
 
-  save(data: UserProps): Promise<void> {
-    if (data.id) {
-      return userService.updateExistingUser(data.id, data);
+  save(data: T): Promise<void> {
+    const { id } = data;
+    if (id) {
+      return userClient.updateExistingUser(this.rootUrl, id, data);
     } else {
-      return userService.saveNewUser(data);
+      return userClient.saveNewUser(this.rootUrl, data);
     }
   }
 
   fetch(id: number): Promise<User> {
-    return userService.getUserById(id);
+    return userClient.getUserById(this.rootUrl, id);
   }
 }
