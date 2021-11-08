@@ -1,14 +1,11 @@
+import { AxiosPromise } from 'axios';
 import * as userClient from '../user-client';
-import { User } from './User';
+import HasId from '../interfaces/HadId';
 
-interface HasId {
-  id?: number;
-}
+export class ApiSync<T extends HasId> {
+  constructor(public rootUrl: string) { }
 
-export class Sync<T extends HasId> {
-  constructor(public rootUrl: string) {}
-
-  save(data: T): Promise<void> {
+  save(data: T): AxiosPromise {
     const { id } = data;
     if (id) {
       return userClient.updateExistingUser(this.rootUrl, id, data);
@@ -17,7 +14,7 @@ export class Sync<T extends HasId> {
     }
   }
 
-  fetch(id: number): Promise<User> {
+  fetch(id: number): AxiosPromise {
     return userClient.getUserById(this.rootUrl, id);
   }
 }

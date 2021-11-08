@@ -1,16 +1,18 @@
-import { Eventing } from './Eventing';
-import { Sync } from './Sync';
+
+import { BaseModel } from './BaseModel';
+import { ApiSync } from './ApiSync';
 import { Attributes } from './Attributes';
+import { Eventing } from './Eventing';
 import UserProps from '../interfaces/UserProps';
 
 const rootUrl = 'http://localhost:3000';
 
-export class User {
-  public events: Eventing = new Eventing();
-  public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
-  public attributes: Attributes<UserProps>;
-
-  constructor(attrs: UserProps) {
-    this.attributes = new Attributes<UserProps>(attrs);
+export class User extends BaseModel<UserProps>{
+  static buildUser(attrs: UserProps): User {
+    return new User(
+      new Attributes<UserProps>(attrs),
+      new Eventing(),
+      new ApiSync<UserProps>(rootUrl)
+    )
   }
 }
