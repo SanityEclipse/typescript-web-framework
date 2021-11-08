@@ -1,9 +1,14 @@
 {
   "users": [
     {
-      "name": "Thomas",
-      "age": 35,
-      "id": 1
+      "id": 1,
+      "name": "Kandy Kong",
+      "age": 21
+    },
+    {
+      "name": "Donkey Kong",
+      "age": 40,
+      "id": 2
     }
   ]
 }

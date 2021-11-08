@@ -1,9 +1,10 @@
-import axios from 'axios';
+import { User } from './models/User';
 import * as userService from './user-service';
 
-// axios.post('http://localhost:3000/users', {
-//   name: 'Thomas',
-//   age: 35,
-// });
+// const user = new User({ id: 1 });
+// const user = new User({ name: 'Donkey Kong', age: 40 });
 
-console.log(userService.getUserById(1));
+// user.set({ name: 'Kandy Kong', age: 21 });
+// user.save();
+
+console.log(userService.getUserList());

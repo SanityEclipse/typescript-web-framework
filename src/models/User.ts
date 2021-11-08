@@ -38,7 +38,13 @@ export class User {
     });
   }
 
-  save(): void {}
+  save(): void {
+    if (this.get('id')) {
+      userService.updateExistingUser(this.get('id'), this.data);
+    } else {
+      userService.saveNewUser(this.data);
+    }
+  }
 
   fetch(): void {
     userService.getUserById(this.get('id'));
