@@ -1,6 +1,9 @@
+import * as userService from '../user-service';
+
 type Callback = () => void;
 
 interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
 }
@@ -37,5 +40,7 @@ export class User {
 
   save(): void {}
 
-  fetch(): void {}
+  fetch(): void {
+    userService.getUserById(this.get('id'));
+  }
 }

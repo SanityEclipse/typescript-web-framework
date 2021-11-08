@@ -1,14 +1,9 @@
-import { User } from './models/User';
+import axios from 'axios';
+import * as userService from './user-service';
 
-const user = new User({ name: 'myName', age: 20 });
+// axios.post('http://localhost:3000/users', {
+//   name: 'Thomas',
+//   age: 35,
+// });
 
-user.on('change', () => {
-  console.log('change #1');
-});
-user.on('meow', () => {
-  console.log('meow meow meow');
-});
-
-user.trigger('change');
-user.trigger('meow');
-user.trigger('fail');
+console.log(userService.getUserById(1));
