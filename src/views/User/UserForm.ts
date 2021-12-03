@@ -1,6 +1,6 @@
-import { User } from '../models/User';
-import UserProps from '../interfaces/UserProps';
-import { BaseView } from './BaseView';
+import { User } from '../../models/User';
+import UserProps from '../../interfaces/UserProps';
+import { BaseView } from '../BaseView';
 
 export class UserForm extends BaseView<User, UserProps> {
   eventsMap(): { [key: string]: () => void } {

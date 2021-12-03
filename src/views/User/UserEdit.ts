@@ -1,9 +1,9 @@
-import { BaseView } from "./BaseView";
-import { User } from "../models/User";
+import { BaseView } from "../BaseView";
+import { User } from "../../models/User";
 import { UserForm } from "./UserForm";
 import { UserShow } from "./UserShow";
 
-import UserProps from "../interfaces/UserProps";
+import UserProps from "../../interfaces/UserProps";
 
 export class UserEdit extends BaseView<User, UserProps> {
   regionsMap(): { [key: string]: string } {

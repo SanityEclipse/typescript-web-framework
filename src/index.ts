@@ -1,5 +1,5 @@
 
-import { UserEdit } from "./views/UserEdit";
+import { UserEdit } from "./views/User/UserEdit";
 import { User } from './models/User';
 
 const user = User.buildUser({ name: "Thomas", age: 35 });
