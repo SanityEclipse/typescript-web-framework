@@ -1,5 +1,5 @@
 import { User } from './models/User';
-import { UserList } from "./views/UserList";
+import { UserList } from "./views/User/UserList";
 import { Collection } from "./models/Collection";
 import UserProps from "./interfaces/UserProps";
 
