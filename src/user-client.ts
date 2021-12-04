@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 export async function getUserList(rootUrl: string) {
   return axios.get(`${rootUrl}/users`);

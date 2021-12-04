@@ -46,9 +46,7 @@ export abstract class BaseView<T extends BaseModel<K>, K> {
     }
   }
 
-  onRender(): void {
-
-  }
+  onRender(): void { }
 
   render(): void {
     this.parent.innerHTML = '';
