@@ -1,6 +1,6 @@
 
 import { Eventing } from './Eventing';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 export class Collection<T, K> {
   models: T[] = [];
@@ -20,8 +20,9 @@ export class Collection<T, K> {
   }
 
   async fetch(): Promise<void> {
-    const res: [] = await axios.get(this.rootUrl);
-    res.forEach((value: K) => {
+    const res: AxiosResponse = await axios.get(this.rootUrl);
+    console.log(res);
+    res.data.forEach((value: K) => {
       this.models.push(this.deserialize(value));
     });
 
